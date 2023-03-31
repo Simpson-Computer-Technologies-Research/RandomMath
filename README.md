@@ -1,5 +1,4 @@
-# RandomMath
-Generate easy random math equations and derivatives to practice quick math
+# Random Math
 ![image](https://user-images.githubusercontent.com/75189508/229249989-1c1d6e09-b0d8-4d84-b97a-036aaeaf4694.png)
 
 # License
