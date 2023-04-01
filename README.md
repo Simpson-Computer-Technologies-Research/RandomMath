@@ -1,5 +1,5 @@
 # Random Math
-![image](https://user-images.githubusercontent.com/75189508/229249989-1c1d6e09-b0d8-4d84-b97a-036aaeaf4694.png)
+[main.pdf](https://github.com/Simpson-Computer-Technologies-Research/RandomMath/files/11128016/main.pdf)
 
 # License
 MIT License
