@@ -17,10 +17,12 @@ class Equations:
         rand_num = lambda: random.randint(2, 9)
         degree_range: range = range(degree - 1, -1, -1)
 
-        # // Generate the equation
+        # // Generate other variables beyond the first one
         other_variables: str = "".join([
             f" {Equations.rand_op()} {rand_num()}" + to_power(i) for i in degree_range
         ])
+
+        # // Generate the equation
         equation: str = f"({rand_num()}" + to_power(degree) + other_variables + ")"
 
         # // Generate the power as a string
@@ -33,10 +35,12 @@ class Equations:
     @staticmethod
     def with_brackets_tasks(amount: int) -> str:
         # // Generate a new task
-        def new_task(n: int) -> str:
+        def new_task(eq_amount: int) -> str:
             equation: str = "".join([
                 Equations.with_brackets(
-                    random.randint(1, 3), random.randint(1, 2)) for _ in range(n)
+                    bracket_power = random.randint(1, 3), 
+                    degree = random.randint(1, 2)
+                ) for _ in range(eq_amount)
             ])
             return f"\\task ${equation}$ {Latex.newlines(5)}"
     

@@ -5,13 +5,13 @@ import random
 class Derivatives:
     # // Generate a random equation
     @staticmethod
-    def product_quotient(n: int, d: int) -> str:
+    def product_quotient(n_amount: int, d_amount: int) -> str:
         # // Generate the numerator
         numerator: str = "".join([
             Equations.with_brackets(
                 bracket_power = random.randint(1, 3), 
                 degree = random.randint(1, 2)
-            ) for _ in range(n)
+            ) for _ in range(n_amount)
         ])
 
         # // Generate the denominator
@@ -19,14 +19,14 @@ class Derivatives:
             Equations.with_brackets(
                 bracket_power = random.randint(1, 3), 
                 degree = random.randint(1, 2)
-            ) for _ in range(d)
+            ) for _ in range(d_amount)
         ])
 
         # // Build the derivative fraction
-        fraction = lambda n, d: f"$\\frac{{d}}{{dx}}\\frac{{{n}}}{{{d}}}$"
+        frac = lambda n, d: f"$\\frac{{d}}{{dx}}\\frac{{{n}}}{{{d}}}$"
 
         # // Return the equation
-        return fraction(numerator, denominator) + Latex.newlines(5)
+        return frac(numerator, denominator) + Latex.newlines(5)
     
     # // Generate the tasks
     @staticmethod
