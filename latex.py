@@ -13,7 +13,7 @@ class Latex:
     # // Start the tasks environment
     @staticmethod
     def start_tasks_env() -> str:
-        return "\\begin{tasks}[label-align=left, label-offset={0mm}, label-width={5mm}, item-indent={5mm}, label-format={\\bfseries}, column-sep=15mm](3)\n"
+        return "\\begin{tasks}[label-align=left, label-offset={0mm}, label-width={5mm}, item-indent={5mm}, label-format={\\bfseries}, column-sep=15mm](2)\n"
 
     # // End the tasks environment
     @staticmethod

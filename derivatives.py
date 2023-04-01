@@ -4,26 +4,12 @@ from factors import Factors
 import random
 
 class Derivatives:
-    # // Generate a random factor
-    @staticmethod
-    def rand_factor() -> str:
-        random_power: int = random.randint(1, 3)
-
-        # // Generate the factor
-        factor: str = f"({General.rand_num()}x {General.rand_op()} {General.rand_num()})"
-
-        # // Generate the power
-        power: str = "^{" + str(random_power) + "}" if random_power > 1 else ""
-
-        # // Return the factor and power
-        return factor + power
-    
     # // Generate a random equation
     @staticmethod
     def random(n: int) -> str:
         # // Generate the numerator and denominator
-        numerator: str = "".join([Derivatives.rand_factor() for _ in range(n)])
-        denominator: str = "".join([Derivatives.rand_factor() for _ in range(n)])
+        numerator: str = "".join([Factors.rand_factor(random.randint(1, 3)) for _ in range(n)])
+        denominator: str = "".join([Factors.rand_factor(random.randint(1, 3)) for _ in range(n)])
 
         # // Return the equation
         return f"$\\frac{{d}}{{dx}}\\frac{{{numerator}}}{{{denominator}}}$" + Latex.newlines(5)
