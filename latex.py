@@ -28,7 +28,7 @@ class Latex:
     # // Generate a new line in latex
     @staticmethod
     def newlines(n: int) -> str:
-        return "\\newline" * n
+        return "\\\\" * n
 
     # // Write the random equations to a file
     @staticmethod
