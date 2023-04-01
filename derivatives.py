@@ -5,30 +5,34 @@ import random
 class Derivatives:
     # // Generate a random equation
     @staticmethod
-    def product_quotient(p: int, q: int) -> str:
+    def product_quotient(n: int, d: int) -> str:
         # // Generate the numerator
         numerator: str = "".join([
             Equations.with_brackets(
-                random.randint(1, 3), random.randint(1, 2)) for _ in range(p)
+                bracket_power = random.randint(1, 3), 
+                degree = random.randint(1, 2)
+            ) for _ in range(n)
         ])
 
         # // Generate the denominator
         denominator: str = "".join([
             Equations.with_brackets(
-                random.randint(1, 3), random.randint(1, 2)) for _ in range(q)
+                bracket_power = random.randint(1, 3), 
+                degree = random.randint(1, 2)
+            ) for _ in range(d)
         ])
 
         # // Build the derivative fraction
-        build_frac = lambda n, d: f"$\\frac{{d}}{{dx}}\\frac{{{n}}}{{{d}}}$"
+        fraction = lambda n, d: f"$\\frac{{d}}{{dx}}\\frac{{{n}}}{{{d}}}$"
 
         # // Return the equation
-        return build_frac(numerator, denominator) + Latex.newlines(5)
+        return fraction(numerator, denominator) + Latex.newlines(5)
     
     # // Generate the tasks
     @staticmethod
     def product_quotient_tasks(amount: int) -> str:
         # // Generate a new task
-        new_task = lambda p, q: f"\\task {Derivatives.product_quotient(p, q)}"
+        new_task = lambda n, d: f"\\task {Derivatives.product_quotient(n, d)}"
     
         # // Generate the tasks
         tasks: str = "\n".join([

@@ -5,7 +5,7 @@ class Equations:
     # // Get a random operator
     @staticmethod
     def rand_op() -> str:
-        return random.choice(["+", "-"])
+        return random.choice(['+', '-'])
     
     # // Generate a random equation with brackets
     @staticmethod
@@ -13,7 +13,7 @@ class Equations:
         # // Determine the power of the variable
         to_power = lambda p: f"x^{{{p}}}" if p > 1 else "x" if p == 1 else ""
         
-        # // Generate a random number
+        # // Random number and the degree range
         rand_num = lambda: random.randint(2, 9)
         degree_range: range = range(degree - 1, -1, -1)
 
