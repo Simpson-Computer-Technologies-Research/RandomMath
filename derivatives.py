@@ -1,6 +1,6 @@
 from latex import Latex
 from equations import Equations
-import random
+from random import randint
 
 class Derivatives:
     # // Generate a random equation
@@ -8,17 +8,17 @@ class Derivatives:
     def product_quotient(n_amount: int, d_amount: int) -> str:
         # // Generate the numerator
         numerator: str = "".join([
-            Equations.with_brackets(
-                bracket_power = random.randint(1, 3), 
-                degree = random.randint(1, 2)
+            Equations.polynomial(
+                degree = randint(1, 2),
+                brackets = True
             ) for _ in range(n_amount)
         ])
 
         # // Generate the denominator
         denominator: str = "".join([
-            Equations.with_brackets(
-                bracket_power = random.randint(1, 3), 
-                degree = random.randint(1, 2)
+            Equations.polynomial(
+                degree = randint(1, 2),
+                brackets = True
             ) for _ in range(d_amount)
         ])
 
@@ -36,8 +36,7 @@ class Derivatives:
     
         # // Generate the tasks
         tasks: str = "\n".join([
-            new_task(random.randint(1, 2), random.randint(1, 2)) 
-                for _ in range(amount)
+            new_task(randint(1, 2), randint(1, 2)) for _ in range(amount)
         ])
 
         # // Return the tasks

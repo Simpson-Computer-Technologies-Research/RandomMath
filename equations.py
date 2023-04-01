@@ -1,4 +1,4 @@
-from latex import Latex
+from random import randint
 import random
 
 class Equations:
@@ -7,46 +7,35 @@ class Equations:
     def rand_op() -> str:
         return random.choice(['+', '-'])
     
-    # // Generate a random equation with brackets
+    # // Generate a random polynomial
     @staticmethod
-    def with_brackets(bracket_power: int, degree: int) -> str:
+    def polynomial(degree: int, brackets = False) -> str:
         # // Determine the power of the variable
         to_power = lambda p: f"x^{{{p}}}" if p > 1 else "x" if p == 1 else ""
         
         # // Random number and the degree range
-        rand_num = lambda: random.randint(2, 9)
         degree_range: range = range(degree - 1, -1, -1)
 
         # // Generate other variables beyond the first one
         other_variables: str = "".join([
-            f" {Equations.rand_op()} {rand_num()}" + to_power(i) for i in degree_range
+            f" {Equations.rand_op()} {randint(2, 9)}" + to_power(i) for i in degree_range
         ])
 
-        # // Generate the equation
-        equation: str = f"({rand_num()}" + to_power(degree) + other_variables + ")"
-
+        # // Build the equation
+        equation: str = f"{randint(2, 9)}" + to_power(degree) + other_variables
+        
+        # // Return the equation with brackets
+        if brackets:
+            return Equations.add_brackets(equation, randint(1, 3))
+        
+        # // Return the equation
+        return equation
+    
+    # // Generate a random equation with brackets
+    @staticmethod
+    def add_brackets(equation: str, bracket_power: int) -> str:
         # // Generate the power as a string
         bracket_power_str: str = f"^{{{bracket_power}}}" if bracket_power > 1 else ""
 
         # // Return the equation and power
-        return equation + bracket_power_str
-    
-    # // Generate the tasks
-    @staticmethod
-    def with_brackets_tasks(amount: int) -> str:
-        # // Generate a new task
-        def new_task(eq_amount: int) -> str:
-            equation: str = "".join([
-                Equations.with_brackets(
-                    bracket_power = random.randint(1, 3), 
-                    degree = random.randint(1, 2)
-                ) for _ in range(eq_amount)
-            ])
-            return f"\\task ${equation}$ {Latex.newlines(5)}"
-    
-        # // Generate the tasks
-        tasks: str = "\n".join([new_task(2) for _ in range(amount)])
-
-        # // Return the tasks
-        return Latex.start_tasks_env() + tasks + Latex.end_tasks_env()
-    
+        return f"({equation})" + bracket_power_str
