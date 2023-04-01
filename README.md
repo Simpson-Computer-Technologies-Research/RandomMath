@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/75189508/229256034-b86282d8-f1b2-40f8-bbd3-9c204362a339.png)
 
 # Download current pdf
-[main.pdf][(https://github.com/Simpson-Computer-Technologies-Research/RandomMath/files/11128016/main.pdf)](https://github.com/Simpson-Computer-Technologies-Research/RandomMath/raw/main/build/main.pdf)
+![main.pdf](https://github.com/Simpson-Computer-Technologies-Research/RandomMath/raw/main/build/main.pdf)
 
 # License
 MIT License
